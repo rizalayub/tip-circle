@@ -1,19 +1,6 @@
-(function (factory) {
-    if (typeof define === 'function' && define.amd) {
-        // AMD
-        define(['leaflet'], factory);
-    } else if (typeof module !== 'undefined' && typeof require !== 'undefined') {
-        // Node/CommonJS
-        module.exports = factory(require('leaflet'));
-    } else {
-        // Browser globals
-        if (typeof window.L === 'undefined') {
-            throw 'Leaflet must be loaded first';
-        }
-        factory(window.L);
-    }
-})(function (L) {
-    L.TipCircle = L.Circle.extend({
+    var L = require('leaflet')
+    
+    var TipCircle = L.Circle.extend({
         initialize: function (latlng, options, legacyOptions) {
           // Create invisible marker
           this._tip = L.circleMarker([0, 0], { opacity: 0, radius: 0 });
@@ -52,7 +39,6 @@
         },
       });
     
-      L.tipCircle = function (latlng, options, legacyOptions) {
-        return new L.TipCircle(latlng, options, legacyOptions);
-      };
-})
+      
+
+  module.exports = TipCircle;
