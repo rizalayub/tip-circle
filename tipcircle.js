@@ -12,8 +12,8 @@
         }
         factory(window.L);
     }
-})(function (T) {
-    T.TipCircle = L.Circle.extend({
+})(function (L) {
+    L.TipCircle = L.Circle.extend({
         initialize: function (latlng, options, legacyOptions) {
           // Create invisible marker
           this._tip = L.circleMarker([0, 0], { opacity: 0, radius: 0 });
@@ -52,7 +52,7 @@
         },
       });
     
-      T.tipCircle = function (latlng, options, legacyOptions) {
-        return new T.TipCircle(latlng, options, legacyOptions);
+      L.tipCircle = function (latlng, options, legacyOptions) {
+        return new L.TipCircle(latlng, options, legacyOptions);
       };
 })
